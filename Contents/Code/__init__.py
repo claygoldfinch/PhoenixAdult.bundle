@@ -1143,7 +1143,14 @@ class PhoenixAdultAgent(Agent.Movies):
             if siteNum == 809:
                 if searchSiteID == 9999 or searchSiteID == 809:
                     results = PAsearchSites.siteTrueAmateurs.search(results, encodedTitle, title, searchTitle, siteNum, lang, searchByDateActor, searchDate, searchSiteID)
-                  
+
+            ###############
+            ## FTVGirls
+            ###############
+            if siteNum == 810:
+                if searchSiteID == 9999 or searchSiteID == 810:
+                    results = PAsearchSites.siteFTVGirls.search(results, encodedTitle, title, searchTitle, siteNum, lang, searchByDateActor, searchDate, searchSiteID)
+
             siteNum += 1
 
         results.Sort('score', descending=True)
@@ -2103,6 +2110,14 @@ class PhoenixAdultAgent(Agent.Movies):
         ##############################################################
         if siteID == 809:
             metadata = PAsearchSites.siteTrueAmateurs.update(metadata, siteID, movieGenres, movieActors)
+
+        ##############################################################
+        ##                                                          ##
+        ##  FTVGirls                                                ##
+        ##                                                          ##
+        ##############################################################
+        if siteID == 810:
+            metadata = PAsearchSites.siteFTVGirls.update(metadata, siteID, movieGenres, movieActors)
 
         ##############################################################
         ## Cleanup Genres and Add
